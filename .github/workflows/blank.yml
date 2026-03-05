@@ -9,8 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print My name
-        run: |
-          echo "Hello Github Actions"
+        run: echo "Hello Github Actions"
 
   install-job:
     runs-on: ubuntu-latest
@@ -22,8 +21,9 @@ jobs:
 
   final-job:
     runs-on: ubuntu-latest
-    needs: [display-job, install-job]
+    needs:
+      - display-job
+      - install-job
     steps:
-      - name: Above 2 jobs are successful
-        run: |
-          echo "Success: 2 jobs completed"
+      - name: Show success message
+        run: echo "Both jobs finished successfully"
