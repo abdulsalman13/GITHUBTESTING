@@ -1,0 +1,27 @@
+name: This Is my First Github Actions
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  display-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print My name
+        run: echo "Hello Github Actions"
+
+  install-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Installing tree
+        run: |
+          sudo apt update
+          sudo apt install tree -y
+
+  final-job:
+    runs-on: ubuntu-latest
+    needs: [display-job, install-job]
+    steps:
+      - name: Above 2 jobs are successful
+        run: echo "Success: 2 jobs completed"
