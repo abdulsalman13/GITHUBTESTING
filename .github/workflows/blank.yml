@@ -11,13 +11,12 @@ jobs:
       - name: Print My name
         run: echo "Hello Github Actions"
 
-  install-job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Installing tree
-        runs: |
-          sudo apt update
-          sudo apt install tree -y
+ install-job:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Fail on purpose
+      run: not_a_real_command
+
 
   final-job:
     runs-on: ubuntu-latest
