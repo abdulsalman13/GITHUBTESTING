@@ -9,14 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print My name
-        run: echo "Hello Github Actions"
+        run: |
+          echo "Hello Github Actions"
 
- install-job:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Fail on purpose
-      run: not_a_real_command
-
+  install-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fail on purpose
+        run: |
+          not_a_real_command
 
   final-job:
     runs-on: ubuntu-latest
@@ -25,4 +26,5 @@ jobs:
       - install-job
     steps:
       - name: Show success message
-        run: echo "Both jobs finished successfully"
+        run: |
+          echo "Both jobs finished successfully"
